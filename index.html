@@ -3,16 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Enoch K — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <title>Enoch K — Portfolio (Remake)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Rethink+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
+      /* Headings use Instrument Serif */
+h1,h2,h3,h4,h5,h6 {font-family: 'Instrument Serif', serif;}
       --bg:#0b0f1a; --card:#071022; --glass: rgba(255,255,255,0.04);
       --accent1:#a770ff; --accent2:#7c5cff; --muted:rgba(255,255,255,0.75);
       --link-hover:#d3bfff; --link-visited:#d3bfff;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:#e9eef8;background:var(--bg);-webkit-font-smoothing:antialiased}
+    html,body{height:100%;margin:0;font-family:'Rethink Sans', system-ui, Segoe UI, Roboto, Arial;color:#e9eef8;background:var(--bg);-webkit-font-smoothing:antialiased}
     a{color:white;text-decoration:none;font-weight:600}
     a:hover{color:var(--link-hover)}
     a:visited{color:var(--link-visited)}
@@ -65,6 +67,15 @@
     .project-title{display:flex;align-items:center;gap:10px}
     .project-underline{height:2px;width:36px;border-radius:2px;background:linear-gradient(90deg,var(--accent1),var(--accent2));transform-origin:left;transform:scaleX(0);transition:transform .4s}
     .card:hover .project-underline{transform:scaleX(1)}
+  
+.actions .pill .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.actions .pill:hover .arrow {
+  transform: translateX(4px);
+}
+
   </style>
 </head>
 <body>
@@ -97,7 +108,7 @@
         <p class="lead">I write long-form fiction (Tevel), design math puzzles and experiments, and prototype web ideas. I developed the Interoch Numbers theory, and I’m a 12th-grade student headed towards B.Tech (AI) and an MA in Archaeology — a weird combo I love exploring.</p>
         <div class="actions">
           <button class="cta" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">See projects</button>
-          <a class="pill" href="#contact">Let’s talk →</a>
+          <a class="pill" href="#contact">Let’s talk <span class="arrow">→</span></a>
         </div>
         <div class="skills">
           <div class="pill">HTML</div>
