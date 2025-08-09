@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Enoch K — Portfolio</title>
+  <title>Enoch K — Portfolio (Remake)</title>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Rethink+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -76,6 +76,8 @@ h1,h2,h3,h4,h5,h6 {font-family: 'Instrument Serif', serif;}
   transform: translateX(4px);
 }
 
+.card:focus{outline:2px solid rgba(124,92,255,0.12);outline-offset:6px;border-radius:10px}
+
   </style>
 </head>
 <body>
@@ -139,22 +141,22 @@ h1,h2,h3,h4,h5,h6 {font-family: 'Instrument Serif', serif;}
     <section id="work" class="reveal" style="margin-top:18px">
       <h3 style="font-family:Playfair Display,serif;margin:6px 0 12px">Selected Projects</h3>
       <div class="grid">
-        <article class="card">
+        <article class="card" data-href="https://example.com/tevel" role="link" tabindex="0">
           <div class="tag">Story</div>
           <div class="project-title"><strong>Tevel — Worldbuilding</strong><span class="project-underline"></span></div>
           <p class="muted" style="margin-top:8px">A multi‑volume fictional Earth with 10–20 empires, unique magic, and an Underworld of living threats.</p>
         </article>
-        <article class="card">
+        <article class="card" data-href="https://example.com/interoch" role="link" tabindex="0">
           <div class="tag">Math</div>
           <strong>Interoch Numbers Theory</strong>
           <p class="muted" style="margin-top:8px">A taxonomy of digit-wise operations for puzzles, encodings, and thought experiments, created by me.</p>
         </article>
-        <article class="card">
+        <article class="card" data-href="https://github.com/EnochKOfficial/legends" role="link" tabindex="0">
           <div class="tag">Code</div>
           <strong><a href="https://github.com/EnochKOfficial/legends" target="_blank">Legends GitHub</a></strong>
           <p class="muted" style="margin-top:8px">My GitHub project "Legends" — exploring creative storytelling with code and design.</p>
         </article>
-        <article class="card">
+        <article class="card" data-href="https://enochkofficial.github.io/EnochKPersonalWeb/" role="link" tabindex="0">
           <div class="tag">Website</div>
           <strong><a href="https://enochkofficial.github.io/EnochKPersonalWeb/" target="_blank">Older Personal Website</a></strong>
           <p class="muted" style="margin-top:8px">My older portfolio site — the starting point for my design and storytelling showcase.</p>
@@ -216,6 +218,28 @@ h1,h2,h3,h4,h5,h6 {font-family: 'Instrument Serif', serif;}
         const dur = 8000 + Math.random()*14000;
         d.animate([{transform:'translateY(0px)'},{transform:'translateY('+(20+Math.random()*60)+'px)'}],{duration:dur,iterations:Infinity,direction:'alternate',easing:'ease-in-out'});
       }
+    })();
+
+    // Make project cards clickable (opens data-href in a new tab).
+    (function(){
+      const cards = document.querySelectorAll('.card[data-href]');
+      cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          // If the user clicked a real link inside the card, let that handle it.
+          if (e.target.closest('a')) return;
+          const url = card.dataset.href;
+          if (!url) return;
+          window.open(url, '_blank', 'noopener');
+        });
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            if (e.target.closest('a')) return;
+            const url = card.dataset.href;
+            if (!url) return;
+            window.open(url, '_blank', 'noopener');
+          }
+        });
+      });
     })();
   </script>
 </body>
